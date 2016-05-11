@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+    <% @flashcards.each do |flashcard| %>
+      <div class="ui card">
+  <div class="content">
+    <div class="right floated meta"><%= time_ago_in_words(flashcard.created_at) %></div>
+    <%= flashcard.name %>
+  </div>
+    <div class="content">
+      <p>
+        <%= flashcard.description%>
+      </p>
+    <span class="right floated">
+      <i class="heart outline like icon"></i>
+      17 likes
+    </span>
+    <i class="user icon"></i>
+    <%= flashcard.user.email %>
+  </div>
+</div>
+    <% end %>
+<br>
+
+<%= link_to 'New Flashcard', new_flashcard_path %>
+
+
