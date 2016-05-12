@@ -1,10 +1,14 @@
 class FlashcardsController < ApplicationController
   before_action :set_flashcard, only: [:show, :edit, :update, :destroy, :like]
-
+  before_filter :set_search
   # GET /flashcards
   # GET /flashcards.json
   def index
-    @flashcards = Flashcard.all.page params[:page]
+    @flashcards = @q.result.page params[:page]
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /flashcards/1
@@ -78,5 +82,9 @@ class FlashcardsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def flashcard_params
       params.require(:flashcard).permit(:name, :description, :user_id)
+    end
+    
+    def set_search
+      @q=Flashcard.ransack(params[:q])
     end
 end

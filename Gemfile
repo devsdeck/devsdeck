@@ -35,7 +35,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 gem 'kaminari'
 gem 'jquery-infinite-pages'
-
+gem 'ransack'
 gem 'devise'
 gem 'redcarpet'
 gem 'coderay'

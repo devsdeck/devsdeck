@@ -1,4 +1,4 @@
-<%= form_for(@flashcard) do |f| %>
+<%= form_for @flashcard, :html => {class: 'ui form'} do |f| %>
   <% if @flashcard.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@flashcard.errors.count, "error") %> prohibited this flashcard from being saved:</h2>
@@ -20,6 +20,6 @@
     <%= f.text_area :description %>
   </div>
  <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'ui button' %>
   </div>
 <% end %>

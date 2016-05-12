@@ -1,19 +1,23 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @flashcard.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @flashcard.description %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @flashcard.user %>
-</p>
+<div class="green ui fluid card">
+  <div class="content">
+    <a class="header"><%= @flashcard.name %></a>
+    <div class="meta">
+      <span class="date"><%= time_ago_in_words(@flashcard.created_at) %></span>
+    </div>
+    <div class="description">
+     <%= markdown(@flashcard.description) %>
+    </div>
+  </div>
+  <div class="extra content"> 
+     By <%= @flashcard.user.email %>
+  <span class="right floated">
+    <div id="likes_<%= @flashcard.id %>">
+  <%= render 'likes', flashcard: @flashcard %>
+  </div>
+  </span>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_flashcard_path(@flashcard) %> |
 <%= link_to 'Back', flashcards_path %>
