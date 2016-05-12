@@ -13,6 +13,7 @@
   </a>
   <div class="right menu">
     <div class="item">
+      <%= link_to 'New Flashcard',new_flashcard_path, class: 'ui item' if current_user%>
       <div class="ui icon input">
         <input type="text" placeholder="search...">
         <i class="search link icon"></i>

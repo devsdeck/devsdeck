@@ -1,25 +1,25 @@
 <p id="notice"><%= notice %></p>
+<div class="ui four stackable cards">
     <% @flashcards.each do |flashcard| %>
-      <div class="ui card">
+<div class="green ui fluid card">
   <div class="content">
-    <div class="right floated meta"><%= time_ago_in_words(flashcard.created_at) %></div>
-    <%= flashcard.name %>
+    <a class="header"><%= flashcard.name %></a>
+    <div class="meta">
+      <span class="date"><%= time_ago_in_words(flashcard.created_at) %></span>
+       <%= flashcard.user.email %>
+    </div>
+    <div class="description">
+    </div>
+     <%= markdown(flashcard.description) %>
   </div>
-    <div class="content">
-      <p>
-        <%= flashcard.description%>
-      </p>
-    <span class="right floated">
+  <div class="extra content">
+     <span class="right floated">
       <i class="heart outline like icon"></i>
       17 likes
     </span>
-    <i class="user icon"></i>
-    <%= flashcard.user.email %>
   </div>
-</div>
-    <% end %>
+</div> 
+<% end %>
 <br>
 
-<%= link_to 'New Flashcard', new_flashcard_path %>
-
-
+</div>
