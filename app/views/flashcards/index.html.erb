@@ -1,25 +1,9 @@
 <p id="notice"><%= notice %></p>
-<div class="ui four stackable cards">
-    <% @flashcards.each do |flashcard| %>
-<div class="green ui fluid card">
-  <div class="content">
-    <a class="header"><%= flashcard.name %></a>
-    <div class="meta">
-      <span class="date"><%= time_ago_in_words(flashcard.created_at) %></span>
-       <%= flashcard.user.email %>
-    </div>
-    <div class="description">
-    </div>
-     <%= markdown(flashcard.description) %>
-  </div>
-  <div class="extra content">
-     <span class="right floated">
-      <i class="heart outline like icon"></i>
-      17 likes
-    </span>
-  </div>
-</div> 
-<% end %>
-<br>
 
-</div>
+<div class="flashcards">
+  <%= render 'flashcards', flashcards: @flashcards %>
+  </div>
+<br>
+  <p class="pagination">
+    <%= link_to_next_page(@flashcards, 'Load more...', :remote => true) %>
+  </p>

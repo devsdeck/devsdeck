@@ -1,10 +1,10 @@
 class FlashcardsController < ApplicationController
-  before_action :set_flashcard, only: [:show, :edit, :update, :destroy]
+  before_action :set_flashcard, only: [:show, :edit, :update, :destroy, :like]
 
   # GET /flashcards
   # GET /flashcards.json
   def index
-    @flashcards = Flashcard.all
+    @flashcards = Flashcard.all.page params[:page]
   end
 
   # GET /flashcards/1
@@ -60,11 +60,19 @@ class FlashcardsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def like
+    return unless current_user
+    @flashcard.upvote_by current_user
+    respond_to do |format|
+      format.js
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_flashcard
-      @flashcard = Flashcard.find(params[:id])
+      @flashcard = Flashcard.find(params[:id] || params[:flashcard_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
