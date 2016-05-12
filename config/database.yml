@@ -81,5 +81,3 @@ test:
 production:
   <<: *default
   database: notes_production
-  username: notes
-  password: <%= ENV['NOTES_DATABASE_PASSWORD'] %>
