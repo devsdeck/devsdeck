@@ -1,5 +1,5 @@
 <%if notice.present?%>
-  <div class="ui positive message">
+<div class="ui positive message">
   <i class="close icon"></i>
   <div><%= notice %></div>
 </div>
@@ -10,12 +10,12 @@
 </div>
 <% end %>
 <script>
-$('.message .close')
+  $('.message .close')
   .on('click', function() {
     $(this)
-      .closest('.message')
-      .hide()
+    .closest('.message')
+    .hide()
     ;
   })
-;
+  ;
 </script>

@@ -1,8 +1,8 @@
 <%= link_to flashcard_like_path(flashcard), method: :patch, remote: true do %>
-  <% if current_user.voted_for? flashcard %>
+<% if current_user.voted_for? flashcard %>
 <i class="heart red like icon"></i>
-    <% else %>
+<% else %>
 <i class="heart outline like icon"></i>
-  <% end%>
-  <% end %>
-  <%= flashcard.cached_votes_total %> 
+<% end%>
+<% end %>
+<%= flashcard.cached_votes_total %>

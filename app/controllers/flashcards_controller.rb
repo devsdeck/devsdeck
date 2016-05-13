@@ -2,7 +2,7 @@ class FlashcardsController < ApplicationController
   before_action :set_flashcard, only: [:show, :edit, :update, :destroy, :like]
   before_filter :set_search
   before_action :authenticate_user!, except: :index
-  
+
   load_and_authorize_resource
 
   # GET /flashcards
@@ -68,7 +68,7 @@ class FlashcardsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+
   def like
     return unless current_user
     @flashcard.upvote_by current_user
@@ -78,18 +78,18 @@ class FlashcardsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_flashcard
-      @flashcard = Flashcard.find(params[:id] || params[:flashcard_id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_flashcard
+    @flashcard = Flashcard.find(params[:id] || params[:flashcard_id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def flashcard_params
-      params.require(:flashcard).permit(:name, :description, :user_id)
-    end
-    
-    def set_search
-      @q=Flashcard.ransack(params[:q])
-      @q.sorts = 'updated_at desc' if @q.sorts.empty?
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def flashcard_params
+    params.require(:flashcard).permit(:name, :description, :user_id)
+  end
+
+  def set_search
+    @q=Flashcard.ransack(params[:q])
+    @q.sorts = 'updated_at desc' if @q.sorts.empty?
+  end
 end

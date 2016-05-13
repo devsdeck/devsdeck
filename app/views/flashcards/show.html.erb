@@ -7,16 +7,16 @@
     </div>
     <div class="description">
      <%= markdown(@flashcard.description) %>
-    </div>
-  </div>
-  <div class="extra content"> 
-     By <%= @flashcard.user.email %>
-  <span class="right floated">
+   </div>
+ </div>
+ <div class="extra content">
+   By <%= @flashcard.user.email %>
+   <span class="right floated">
     <div id="likes_<%= @flashcard.id %>">
-  <%= render 'likes', flashcard: @flashcard %>
-  </div>
+      <%= render 'likes', flashcard: @flashcard %>
+    </div>
   </span>
-  </div>
+</div>
 </div>
 <% if can? :update, @flashcard %>
 <%= link_to 'Edit', edit_flashcard_path(@flashcard) %> |
