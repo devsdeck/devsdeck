@@ -1,12 +1,12 @@
 <%if notice.present?%>
   <div class="ui positive message">
   <i class="close icon"></i>
-  <div class="header"><%= notice %></div>
+  <div><%= notice %></div>
 </div>
 <% elsif alert.present? %>
 <div class="ui negative message">
   <i class="close icon"></i>
-  <div class="header"><%= alert %></div>
+  <div><%= alert %></div>
 </div>
 <% end %>
 <script>
