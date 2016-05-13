@@ -17,6 +17,7 @@ gem 'redcarpet'
 gem 'coderay'
 gem 'puma'
 gem 'acts_as_votable', '~> 0.10.0'
+gem 'cancancan', '~> 1.10'
 
 group :development, :test do
   gem 'pry'

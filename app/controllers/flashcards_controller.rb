@@ -2,6 +2,9 @@ class FlashcardsController < ApplicationController
   before_action :set_flashcard, only: [:show, :edit, :update, :destroy, :like]
   before_filter :set_search
   before_action :authenticate_user!, except: :index
+  
+  load_and_authorize_resource
+
   # GET /flashcards
   # GET /flashcards.json
   def index

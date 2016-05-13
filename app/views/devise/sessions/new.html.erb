@@ -3,7 +3,8 @@
   <div class="column"></div>
   <div class="column">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {class: 'ui form'}) do |f| %>
-  <%= devise_error_messages! %>
+    
+<%= render 'layouts/messages' %>
       <div class="ui">
         <div class="field">
           <div class="ui left icon input">

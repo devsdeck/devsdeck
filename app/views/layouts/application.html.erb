@@ -8,31 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 </head>
 <body class="ui container">
-  <div class="ui secondary  menu">
-  <a class="item">
-    <h2><i class="diamond icon"></i>RubyFlashCards</h2>
-  </a>
-  <div class="right menu">
-    <div class="item">
-      <% if current_user %>
-      <%= link_to 'New Flashcard',new_flashcard_path, class: 'ui  red item'%>
-      <div class="ui icon input">
-        <%= search_form_for(@q,  method: "get") do %>
-        <div class="ui icon input">
-	<input type="text" name="q[name_cont]" id="q_name_cont" placeholder="Search...">
-  <i class="search icon"></i>
-</div>
-<% end %>
-</div>
-        <div class='ui item'> <%= current_user.email %> </div>
-    <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'ui item'%>
-  <% else %>
-    <%= link_to 'Login', new_user_session_path, class: 'ui item'%>
-<% end %>
-
-    </div>
-  </div>
-  </div>
+<%= render 'layouts/header' %>
 <%= yield %>
 
 </body>

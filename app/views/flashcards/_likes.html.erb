@@ -1,4 +1,3 @@
-<%if current_user %>
 <%= link_to flashcard_like_path(flashcard), method: :patch, remote: true do %>
   <% if current_user.voted_for? flashcard %>
 <i class="heart red like icon"></i>
@@ -7,4 +6,3 @@
   <% end%>
   <% end %>
   <%= flashcard.get_upvotes.size %> 
-<% end %>
