@@ -18,6 +18,7 @@
   </span>
   </div>
 </div>
-
+<% if can? :update, @flashcard %>
 <%= link_to 'Edit', edit_flashcard_path(@flashcard) %> |
+<% end %>
 <%= link_to 'Back', flashcards_path %>
