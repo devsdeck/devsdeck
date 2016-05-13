@@ -4,7 +4,7 @@
   <div class="content">
     <%= link_to flashcard.name, flashcard_path(flashcard), class: 'header'%>
     <div class="meta">
-      <span class="date"><%= time_ago_in_words(flashcard.created_at) %></span>
+      <span class="date"><%= time_ago_in_words(flashcard.updated_at) %></span>
     </div>
     <div class="description">
      <%= markdown(flashcard.description) %>
