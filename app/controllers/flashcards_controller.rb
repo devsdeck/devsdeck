@@ -8,7 +8,7 @@ class FlashcardsController < ApplicationController
   # GET /flashcards
   # GET /flashcards.json
   def index
-    @flashcards = @q.result.page params[:page]
+    @flashcards = @q.result.includes(:user).page params[:page]
     respond_to do |format|
       format.html
       format.js
