@@ -6,6 +6,7 @@ module ApplicationHelper
 end
 
 def markdown(text)
+begin
   coderayified = CodeRayify.new(:filter_html => true, 
                                 :hard_wrap => true)
   options = {
@@ -18,5 +19,9 @@ def markdown(text)
   }
   markdown_to_html = Redcarpet::Markdown.new(coderayified, options)
   markdown_to_html.render(text).html_safe
+  rescue StandardError => e
+    flash.alert = 'Unable to render Markdown!'
+    text
+  end
 end
 end
