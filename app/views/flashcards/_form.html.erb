@@ -20,6 +20,10 @@
   <%= f.text_area :description %>
 </div>
 <div class="actions">
-  <%= f.submit class: 'ui button' %>
+  <% if f.object.new_record? %>
+    <%= f.button class: 'ui button', data: { disable_with: '<i class="spinner icon"></i> Creating...'}%>
+  <% else %>
+    <%= f.button class: 'ui button', data: { disable_with: '<i class="spinner icon"></i> Updating...'}%>
+  <% end %>
 </div>
 <% end %>

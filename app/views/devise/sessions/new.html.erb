@@ -17,7 +17,7 @@
           <%= f.password_field :password, autocomplete: "off", placeholder: 'Password' %>
         </div>
       </div>
-      <%= f.submit "Log in", class: 'ui fluid submit button' %>
+      <%= f.button "Log in", class: 'ui fluid submit button', data: { disable_with: '<i class="spinner icon"></i> Logging in...'}%>
     </div>
     <% end %>
     <div class="ui message">
