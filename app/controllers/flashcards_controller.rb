@@ -90,6 +90,6 @@ class FlashcardsController < ApplicationController
 
   def set_search
     @q=Flashcard.ransack(params[:q])
-    @q.sorts = 'updated_at desc' if @q.sorts.empty?
+    @q.sorts = 'created_at desc' if @q.sorts.empty?
   end
 end
