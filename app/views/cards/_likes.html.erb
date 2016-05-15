@@ -1,0 +1,8 @@
+<%= link_to card_like_path(card), method: :patch, remote: true do %>
+  <% if current_user.voted_for? card %>
+    <i class="heart red like icon"></i>
+  <% else %>
+    <i class="heart outline like icon"></i>
+  <% end%>
+<% end %>
+<%= card.cached_votes_total %>

@@ -1,0 +1,24 @@
+<%= render 'layouts/messages' %>
+<div class="green ui fluid card">
+  <div class="content">
+    <a class="header"><%= @card.name %></a>
+    <div class="meta">
+      <span class="date"><%= time_ago_in_words(@card.created_at) %></span>
+    </div>
+    <div class="description">
+     <%= markdown(@card.description) %>
+   </div>
+ </div>
+ <div class="extra content">
+   By <%= @card.user.email %>
+   <span class="right floated">
+    <div id="likes_<%= @card.id %>">
+      <%= render 'likes', card: @card %>
+    </div>
+  </span>
+</div>
+</div>
+<% if can? :update, @card %>
+<%= link_to 'Edit', edit_card_path(@card) %> |
+<% end %>
+<%= link_to 'Back', cards_path %>

@@ -6,9 +6,9 @@ class Ability
     if user.admin?
       can :manage, :all
     else
-      can [:read, :create, :like], Flashcard
-      can [:update], Flashcard do |flashcard|
-        flashcard.owned_by?(user)
+      can [:read, :create, :like], Card
+      can [:update], Card do |card|
+        card.owned_by?(user)
       end
     end
   end

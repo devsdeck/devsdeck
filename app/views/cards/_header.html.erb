@@ -5,7 +5,7 @@
     <div class="right menu">
       <div class="item">
         <% if current_user %>
-        <%= link_to 'New Flashcard',new_flashcard_path, class: 'ui  red item'%>
+        <%= link_to 'New Card',new_card_path, class: 'ui  red item'%>
         <div class="ui icon input">
           <%= search_form_for(@q,  method: "get") do %>
           <div class="ui icon input">

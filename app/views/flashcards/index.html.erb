@@ -1,8 +1,0 @@
-<%= render 'layouts/messages' %>
-<div class="flashcards">
-	<%= render 'flashcards', flashcards: @flashcards %>
-</div>
-<br>
-<p class="pagination">
-	<%= link_to_next_page(@flashcards, 'Load more...', :remote => true) %>
-</p>
