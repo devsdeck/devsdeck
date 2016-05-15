@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160515154335) do
+ActiveRecord::Schema.define(version: 20160515161612) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,17 +26,6 @@ ActiveRecord::Schema.define(version: 20160515154335) do
   end
 
   add_index "cards", ["user_id"], name: "index_cards_on_user_id", using: :btree
-
-  create_table "flashcards", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
-    t.integer  "user_id"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.integer  "cached_votes_total", default: 0
-  end
-
-  add_index "flashcards", ["user_id"], name: "index_flashcards_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
@@ -73,5 +62,4 @@ ActiveRecord::Schema.define(version: 20160515154335) do
   add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
   add_foreign_key "cards", "users"
-  add_foreign_key "flashcards", "users"
 end
