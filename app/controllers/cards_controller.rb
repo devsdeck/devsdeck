@@ -7,11 +7,7 @@ class CardsController < ApplicationController
 
   def index
     @cards = @q.result.includes(:user).page params[:page]
-    respond_to do |format|
-      format.html
-      format.js
-    end
-  end
+   end
 
   def show
   end
@@ -25,44 +21,23 @@ class CardsController < ApplicationController
 
   def create
     @card = current_user.cards.new(card_params)
-
-    respond_to do |format|
-      if @card.save
-        format.html { redirect_to @card, notice: 'Card was successfully created.' }
-        format.json { render :show, status: :created, location: @card }
-      else
-        format.html { render :new }
-        format.json { render json: @card.errors, status: :unprocessable_entity }
-      end
-    end
+    @card.save
+    respond_with(@card)
   end
 
   def update
-    respond_to do |format|
-      if @card.update(card_params)
-        format.html { redirect_to @card, notice: 'Card was successfully updated.' }
-        format.json { render :show, status: :ok, location: @card }
-      else
-        format.html { render :edit }
-        format.json { render json: @card.errors, status: :unprocessable_entity }
-      end
-    end
+    @card.update(card_params)
+    respond_with(@card)
   end
 
   def destroy
     @card.destroy
-    respond_to do |format|
-      format.html { redirect_to cards_url, notice: 'Card was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    respond_with(@card)
   end
 
   def like
     return unless current_user
     @card.upvote_by current_user
-    respond_to do |format|
-      format.js
-    end
   end
 
   private

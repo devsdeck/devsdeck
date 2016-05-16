@@ -235,6 +235,7 @@ DEPENDENCIES
   rails_12factor
   ransack
   redcarpet
+  responders
   rspec-rails (~> 3.0.0)
   sass-rails (~> 5.0)
   semantic-ui-sass!
