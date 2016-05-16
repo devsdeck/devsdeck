@@ -5,8 +5,6 @@ class CardsController < ApplicationController
 
   load_and_authorize_resource
 
-  # GET /cards
-  # GET /cards.json
   def index
     @cards = @q.result.includes(:user).page params[:page]
     respond_to do |format|
@@ -15,22 +13,16 @@ class CardsController < ApplicationController
     end
   end
 
-  # GET /cards/1
-  # GET /cards/1.json
   def show
   end
 
-  # GET /cards/new
   def new
     @card = Card.new
   end
 
-  # GET /cards/1/edit
   def edit
   end
 
-  # POST /cards
-  # POST /cards.json
   def create
     @card = current_user.cards.new(card_params)
 
@@ -45,8 +37,6 @@ class CardsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /cards/1
-  # PATCH/PUT /cards/1.json
   def update
     respond_to do |format|
       if @card.update(card_params)
@@ -59,8 +49,6 @@ class CardsController < ApplicationController
     end
   end
 
-  # DELETE /cards/1
-  # DELETE /cards/1.json
   def destroy
     @card.destroy
     respond_to do |format|
@@ -78,12 +66,11 @@ class CardsController < ApplicationController
   end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
+
   def set_card
     @card = Card.find(params[:id] || params[:card_id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def card_params
     params.require(:card).permit(:name, :description)
   end

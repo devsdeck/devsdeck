@@ -21,6 +21,10 @@ gem 'cancancan', '~> 1.10'
 
 group :development, :test do
   gem 'pry'
+  gem 'rspec-rails', '~> 3.0.0'
+  gem 'factory_girl_rails', '~> 4.0'
+  gem 'shoulda-matchers'
+  gem 'better_errors'
 end
 
 group :development do
