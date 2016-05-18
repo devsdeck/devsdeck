@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="content">
+    <div class="header">Recent Likes</div>
+    <div class="description">
+      <% @liked.each do |card| %>
+        <div class="ui items">
+            <div class="item">
+                <div class="ui tiny image">
+                     <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSWavOR3xeR4URU6A6REcM9SU5ET0p_JHVnSZjVnU_OTOgm_POdoQ", width="25%"  />
+                </div>
+                <div class="middle aligned content">
+                    <a class="header"> <%= card.name %> </a>
+                </div>
+            </div>
+        </div>
+        <% end %>
+    </div>
+  </div>
+  <div class="extra content">
+    <span class="right floated">
+      Latest like 2014
+    </span>
+    <span>
+      <i class="user icon"></i>
+      151 Total Likes
+    </span>
+  </div>
+</div>
