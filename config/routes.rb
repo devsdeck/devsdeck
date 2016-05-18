@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :users
+
   resources :cards do
     patch 'like'
   end
