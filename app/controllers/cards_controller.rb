@@ -7,7 +7,7 @@ class CardsController < ApplicationController
 
   def index
     @cards = @q.result.includes(:user).page params[:page]
-   end
+  end
 
   def show
   end
