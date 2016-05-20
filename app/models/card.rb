@@ -1,5 +1,8 @@
 class Card < ActiveRecord::Base
+  has_many :card_tags
+  has_many :tags, through: :card_tags
 	belongs_to :user
+
   validates_presence_of :name
   
   acts_as_votable
