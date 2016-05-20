@@ -12,5 +12,5 @@ class CardTaggerService
 
   def find_or_create_tags
     @tags.map { |t| Tag.find_or_create_by(name: t) }
-  end 
+  end
 end
