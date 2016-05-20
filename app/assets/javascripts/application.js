@@ -14,5 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery.infinite-pages
+//= require semantic-ui
 //= require_tree .
-

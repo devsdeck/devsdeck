@@ -19,6 +19,10 @@
   <%= f.label :description %><br>
   <%= f.text_area :description %>
 </div>
+<div class="field">
+    <%= f.label :tags %><br>
+  <%= select_tag "tags[]", options_from_collection_for_select(@all_tags, "name", "name", @card.tags.pluck(:name)), class: "ui fluid multiple search selection dropdown", multiple: ""%>
+  </div>
 <div class="actions">
   <% if f.object.new_record? %>
     <%= f.button 'Create', class: 'ui button', data: { disable_with: '<i class="spinner icon"></i> Creating...'}%>
