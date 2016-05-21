@@ -1,7 +1,7 @@
 class CardsController < ApplicationController
   before_action :set_card, only: [:show, :edit, :update, :destroy, :like]
-  before_filter :set_search
-  before_filter :set_tags
+  before_action :set_search, except: [:like]
+  before_action :set_tags, except: [:index, :show, :like]
   before_action :authenticate_user!, except: :index
 
   load_and_authorize_resource
