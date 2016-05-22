@@ -1,10 +1,10 @@
 <div class="ui two stackable cards">
-  <% cards.each do |card| %>
+  <% @cards.each do |card| %>
   <div class="green ui fluid card">
     <div class="content">
       <%= link_to card.name, card_path(card), class: 'header'%>
       <div class="meta">
-        <span class="date"><%= time_ago_in_words(card.created_at) %></span>
+        <span class="date"><%= card.user.email %> <i class="mini circle icon"></i> <%= time_ago_in_words(card.created_at) %> ago</span>
       </div>
       <div class="description">
        <%= markdown(card.description) %>
@@ -12,7 +12,9 @@
    </div>
    <% if current_user %>
    <div class="extra content">
-     By <%= card.user.email %>
+     <% card.tags.each do |t| %>
+       <a class="ui tag label"><%= t.name %></a>
+     <% end %>
      <span class="right floated">
       <div id="likes_<%= card.id %>">
         <%= render 'likes', card: card %>
