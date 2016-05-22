@@ -9,8 +9,9 @@ class UsersController < ApplicationController
     @cards = current_user.cards.order('created_at')
     @total_cards = @cards.size
     @latest_card = @cards.last
-    @liked = current_user.find_voted_items
+    @liked = current_user.find_voted_items.sort_by { |like| like.created_at }
     @total_liked = @liked.size
+    @latest_like = @liked.last
   end
 
   def update

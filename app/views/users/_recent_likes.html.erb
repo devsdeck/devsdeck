@@ -3,10 +3,13 @@
     <div class="header">Recent Likes</div>
     <div class="description">
       <% @liked.each do |card| %>
-        <div class="ui items">
+        <div class="ui celled list">
             <div class="item">
                 <%= div_for(card, class: "middle aligned content") do %>
-                    <%= link_to card.name, card_path(card), class: 'header'%>
+                  <%= link_to card.name, card_path(card), class: 'header'%>
+                  <br>
+                  <%= time_ago_in_words(card.created_at) %>
+                  ago
                 <% end %>
             </div>
         </div>
@@ -14,12 +17,14 @@
     </div>
   </div>
   <div class="extra content">
+    <% if @total_liked > 0 %>
     <span class="right floated">
-      Latest like 2014
+      Latest like <%= link_to @latest_like.name, card_path(@latest_like), class: 'header'%>
     </span>
     <span>
       <i class="user icon"></i>
-      151 Total Likes
+      <%= @total_liked %> Total Likes
     </span>
+    <% end %>
   </div>
 </div>
