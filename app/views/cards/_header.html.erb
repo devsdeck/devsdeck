@@ -13,12 +13,19 @@
            <i class="search icon"></i>
          </div>
          <% end %>
+          <div class='ui item'> <%= current_user.email %> </div>
        </div>
-       <div class='ui item'> <%= current_user.email %> </div>
-       <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'ui item'%>
-       <% else %>
-       <%= link_to 'Login/Signup', new_user_session_path, class: 'ui item'%>
-       <% end %>
+          <div class="ui right dropdown item">
+            Profile
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              <%= link_to 'Profile', user_path(current_user), class: 'ui item'%>
+              <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'ui item'%>
+            </div>
+          </div>
+        <% else %>
+            <%= link_to 'Login/Signup', new_user_session_path, class: 'ui item'%>
+        <% end %>
      </div>
    </div>
  </div>
