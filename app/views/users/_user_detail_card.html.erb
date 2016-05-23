@@ -1,29 +1,23 @@
 <div class="card">
 
     <div class="image">
-      <%= image_tag('user.png') %>
+      <%= image_tag('https://www.drupal.org/files/profile_default.png') %>
     </div>
     <div class="content">
-      <div class="header"> <%= @user.name %></div>
-      <div class="meta">
-        <a>Experience: 0 xp</a>
+      <div class="header">
+        <div><%= @user.email %></div>
       </div>
       <div class="description">
         <%= @user.description %>
       </div>
     </div>
     <div class="extra content">
-      <span class="right floated">
+      <span>
         <%= link_to "Edit Profile", edit_user_path(@user) %>
       </span>
     </div>
-    <div class="extra content">
-      <span class="right floated">
-        <%= time_ago_in_words(current_user.created_at) %>
-      </span>
-      <span>
-        <i class="user icon"></i>
-        Latest badge: Newbie
-      </span>
+    <div class="extra content center ">
+      <%= render 'statistic', total: @total_cards, label: 'Cards'%>
+      <%= render 'statistic', total: @total_liked, label: 'Likes'%>
+   </div>
     </div>
-</div>

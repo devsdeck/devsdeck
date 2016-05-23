@@ -1,22 +1,20 @@
 <div class="card">
     <div class="content">
-        <div class="header">Recent Cards</div>
         <div class="description">
-
+          <div class="ui relaxed divided list">
             <% @cards.each do |card| %>
-              <div class="ui celled list">
-                  <div class="item">
-
-                      <%= div_for(card, class: "middle aligned content") do %>
+                <div class="item">
+                      <%= div_for(card, class: "content") do %>
                         <%= link_to card.name, card_path(card), class: 'header'%>
-                        <br>
+                        <div class="description">
                         <%= time_ago_in_words(card.created_at) %>
                         ago
+                        </div>
                       <% end %>
 
                   </div>
-              </div>
             <% end %>
+            </div>
 
         </div>
     </div>

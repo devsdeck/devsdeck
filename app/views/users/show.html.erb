@@ -1,8 +1,23 @@
-<h1>Profile</h1>
-<div class="ui cards">
-  <%= render 'user_detail_card.html.erb' %>
-
+<div class="ui grid">
+  <div class="four wide column">
+  <div class="ui cards">
+    <%= render 'user_detail_card.html.erb' %>
+  </div>
+  </div>
+  <div class="eight wide column">
+   <div class="ui tabular menu">
+  <a class="active item">
+    Your cards
+  </a>
+  <a class="item">
+    Your likes
+  </a>
+</div>
+    <div class="ui one stackable cards">
   <%= render 'recent_cards' %>
-
-  <%= render 'recent_likes' %>
+</div>
+</div>
+  <div class="four wide column">
+ </div>
+ 
 </div>
