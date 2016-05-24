@@ -1,32 +1,21 @@
 <div class="card">
-    <div class="content">
-        <div class="description">
-          <div class="ui relaxed divided list">
-            <% @cards.each do |card| %>
-                <div class="item">
-                      <%= div_for(card, class: "content") do %>
-                        <%= link_to card.name, card_path(card), class: 'header'%>
-                        <div class="description">
-                        <%= time_ago_in_words(card.created_at) %>
-                        ago
-                        </div>
-                      <% end %>
-
-                  </div>
+  <div class="content">
+    <div class="description">
+      <div class="ui relaxed divided list">
+        <% @cards.each do |card| %>
+          <div class="item">
+            <%= div_for(card, class: "content") do %>
+              <%= link_to card.name, card_path(card), class: 'header'%>
+              <div class="description">
+                <%= time_ago_in_words(card.created_at) %>
+                ago
+              </div>
             <% end %>
-            </div>
 
-        </div>
+          </div>
+        <% end %>
+      </div>
+
     </div>
-    <div class="extra content">
-        <span class="right floated">
-            <b>Latest Card</b>
-            <%= link_to @latest_card.name, card_path(@latest_card), class: 'header'%>
-        </span>
-        <span>
-            <i class="user icon"></i>
-            <%= @total_cards %>
-            Total Cards
-        </span>
-    </div>
+  </div>
 </div>
