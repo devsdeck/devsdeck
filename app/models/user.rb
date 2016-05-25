@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   acts_as_voter
 
   def latest_cards
-    cards.order("created_at").first(10)
+    cards.order("created_at DESC").limit(10)
   end
 
   def latest_likes
