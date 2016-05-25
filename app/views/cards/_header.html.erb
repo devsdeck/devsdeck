@@ -1,30 +1,34 @@
-  <div class="ui secondary  menu">
-    <a class="item" href="<%= root_path %>">
-      <h2><i class="diamond icon"></i>DevsDeck</h2>
-    </a>
-    <div class="right menu">
-      <div class="item">
-        <% if current_user %>
+<div class="ui secondary  menu">
+  <a class="item" href="<%= root_path %>">
+    <h2><i class="diamond icon"></i>DevsDeck</h2>
+  </a>
+  <div class="right menu">
+    <div class="item">
+      <% if current_user %>
         <%= link_to 'New Card',new_card_path, class: 'ui  red item'%>
         <div class="ui icon input">
           <%= search_form_for(@q,  method: "get") do %>
-          <div class="ui icon input">
-           <input type="text" name="q[name_cont]" id="q_name_cont" placeholder="Search...">
-           <i class="search icon"></i>
-         </div>
-         <% end %>
-          <div class='ui item'> <%= current_user.email %> </div>
-       </div>
-          <div class="ui right dropdown item">
-            <i class="sidebar icon"></i>
-            <div class="menu">
-              <%= link_to 'Profile', user_path(current_user), class: 'ui item'%>
-              <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'ui item'%>
+            <div class="ui icon input">
+              <input type="text" name="q[name_cont]" id="q_name_cont" placeholder="Search...">
+              <i class="search icon"></i>
             </div>
-          </div>
-        <% else %>
-            <%= link_to 'Login/Signup', new_user_session_path, class: 'ui item'%>
-        <% end %>
-     </div>
-   </div>
- </div>
+          <% end %>
+        </div>
+        <div class='ui item'>
+          <img class="ui avatar image" src="<%= avatar_url(current_user) %>">
+          <span><%= current_user.email %></span>
+        </div>
+    </div>
+    <div class="ui right dropdown item">
+      <i class="sidebar icon"></i>
+      <div class="menu">
+        <%= link_to 'Profile', user_path(current_user), class: 'ui item'%>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'ui item'%>
+      </div>
+    </div>
+  <% else %>
+    <%= link_to 'Login/Signup', new_user_session_path, class: 'ui item'%>
+  <% end %>
+  </div>
+</div>
+</div>
