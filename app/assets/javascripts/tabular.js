@@ -1,3 +1,3 @@
 $( document ).on("page:change", function () {
-  $('.menu .item').tab();
+  $(".menu .item").tab();
 });
