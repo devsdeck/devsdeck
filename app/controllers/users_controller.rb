@@ -6,12 +6,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @cards = current_user.cards.order('created_at')
-    @total_cards = @cards.size
-    @latest_card = @cards.last
-    @liked = current_user.find_voted_items.sort_by { |like| like.created_at }
-    @total_liked = @liked.size
-    @latest_like = @liked.last
+    @cards = current_user.cards.order("created_at")
+    @liked = current_user.find_voted_items.sort_by(&:created_at)
   end
 
   def update
