@@ -11,12 +11,12 @@
         <%= @user.description %>
       </div>
     </div>
-    <div class="extra content">
+    <div class="extra content center aligned">
       <span>
         <%= link_to "Edit Profile", edit_user_path(@user) %>
       </span>
     </div>
-    <div class="extra content center ">
+    <div class="extra content center aligned">
       <%= render 'statistic', total: @cards.size, label: 'Cards'%>
       <%= render 'statistic', total: @liked.size, label: 'Likes'%>
    </div>
