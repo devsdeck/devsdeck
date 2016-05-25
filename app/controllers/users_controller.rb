@@ -6,13 +6,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    @cards = current_user.cards.order("created_at")
-    @liked = current_user.find_voted_items.sort_by(&:created_at)
+    @cards = @user.latest_cards
+    @liked = @user.latest_likes
   end
 
   def update
     @user.update(user_params)
-    redirect_to action: 'show', id: current_user.id
+    redirect_to action: 'show', id: @user.id
   end
 
   def edit

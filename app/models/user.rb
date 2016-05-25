@@ -5,4 +5,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :cards
   acts_as_voter
+
+  def latest_cards
+    cards.order("created_at").first(10)
+  end
+
+  def latest_likes
+    find_voted_items.sort_by(&:created_at).first(10)
+  end
 end
