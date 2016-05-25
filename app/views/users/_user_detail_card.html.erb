@@ -13,7 +13,10 @@
     </div>
     <div class="extra content center aligned">
       <span>
-        <%= link_to "Edit Profile", edit_user_path(@user) %>
+        <%= link_to edit_user_path(@user) do %>
+          <i class="edit icon"></i>
+          Edit Profile
+        <% end %>
       </span>
     </div>
     <div class="extra content center aligned">
