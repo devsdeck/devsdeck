@@ -22,8 +22,15 @@
     <div class="ui right dropdown item">
       <i class="sidebar icon"></i>
       <div class="menu">
-        <%= link_to 'Profile', user_path(current_user), class: 'ui item'%>
-        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'ui item'%>
+      <%= link_to user_path(current_user), class: 'ui item' do %>
+        <i class="user icon"></i>
+        Profile
+      <% end %>
+
+      <%= link_to destroy_user_session_path, method: :delete, class: 'ui item' do %>
+        <i class="sign out icon"></i>
+        Log out
+      <% end %>
       </div>
     </div>
   <% else %>
