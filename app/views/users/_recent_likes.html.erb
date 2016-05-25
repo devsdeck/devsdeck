@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="content">
+    <div class="description">
+      <div class="ui relaxed divided list">
+        <% @liked.each do |card| %>
+          <div class="item">
+            <%= div_for(card, class: "middle aligned content") do %>
+              <%= link_to card.name, card_path(card), class: 'header'%>
+              <div class="description">
+                <%= time_ago_in_words(card.created_at) %>
+                ago
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,5 @@
-$( document ).on("page:change", function () {
-  $(".ui.fluid.dropdown").dropdown({
+$( document ).on('page:change', function () {
+  $('.dropdown').dropdown({
     allowAdditions: true
   });
 });

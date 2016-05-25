@@ -1,0 +1,47 @@
+<div class="ui items">
+  <div class="item">
+    <div class="image">
+      <%= image_tag(avatar_url(@user)) %>
+      <div class="extra">
+        Visit <a href="http://Gravatar.com">Gravatar.com</a>to update your avatar.
+      </div>
+    </div>
+    <div class="content">
+      <div class="description">
+        <%= form_for @user, :html => {class: 'ui form'} do |f| %>
+          <% if @user.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@user.errors.count, "error") %>
+              prohibited this user from being saved:</h2>
+              <ul>
+                <% @user.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="field">
+            <%= f.label :name %><br>
+            <%= f.text_field :name %>
+          </div>
+          <div class="field">
+            <%= f.label :email %><br>
+            <%= f.text_field :email %>
+          </div>
+          <div class="field">
+            <%= f.label :description %><br>
+            <%= f.text_area :description %>
+          </div>
+          <div class="actions">
+            <% if f.object.new_record? %>
+              <%= f.button 'Create', class: 'ui button', data: { disable_with: '<i class="spinner icon"></i> Creating...'}%>
+            <% else %>
+              <%= f.button 'Update', class: 'ui button', data: { disable_with: '<i class="spinner icon"></i> Updating...'}%>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

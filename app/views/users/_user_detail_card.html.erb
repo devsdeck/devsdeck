@@ -1,0 +1,26 @@
+<div class="card">
+
+    <div class="image">
+      <%= image_tag(avatar_url(@user)) %>
+    </div>
+    <div class="content">
+      <div class="header">
+        <div><%= @user.email %></div>
+      </div>
+      <div class="description">
+        <%= @user.description %>
+      </div>
+    </div>
+    <div class="extra content center aligned">
+      <span>
+        <%= link_to edit_user_path(@user) do %>
+          <i class="edit icon"></i>
+          Edit Profile
+        <% end %>
+      </span>
+    </div>
+    <div class="extra content center aligned">
+      <%= render 'statistic', total: @cards.size, label: 'Cards'%>
+      <%= render 'statistic', total: @liked.size, label: 'Likes'%>
+   </div>
+    </div>
