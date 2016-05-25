@@ -12,4 +12,8 @@ class Card < ActiveRecord::Base
     return false unless owner.is_a?(User)
     user == owner
   end
+
+  def like_created_at_by(user)
+    get_upvotes.find_by(voter: user).try(:created_at)
+  end
 end
