@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   end
 
   def latest_likes
-    find_voted_items.reverse.last(10)
+    find_votes.sort_by(&:created_at).reverse.collect(&:votable).first(10)
   end
 
   def total_cards
