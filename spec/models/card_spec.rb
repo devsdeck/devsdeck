@@ -18,8 +18,7 @@ RSpec.describe Card, type: :model do
     it "should return created_at of vote on a card" do
       card.liked_by(user)
 
-      expect(card.like_created_at_by(user))
-        .to eq(card.get_upvotes.find_by(voter: user).created_at)
+      expect(card.like_created_at_by(user)).to eq(card.get_upvotes.find_by(voter: user).created_at)
     end
   end
 end

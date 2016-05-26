@@ -10,7 +10,7 @@ RSpec.describe User, type: :model do
       FactoryGirl.create(:card, name: "card_one", user: user)
       FactoryGirl.create(:card, name: "card_two", user: user)
 
-     expect(uer.latest_cards.first.name).to eq("card_two")
+      expect(user.latest_cards.first.name).to eq("card_two")
     end
   end
 
