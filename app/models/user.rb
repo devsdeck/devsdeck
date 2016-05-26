@@ -3,7 +3,9 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
   has_many :cards
+
   acts_as_voter
 
   def latest_cards
@@ -11,6 +13,14 @@ class User < ActiveRecord::Base
   end
 
   def latest_likes
-    find_voted_items.sort_by(&:created_at).first(10)
+    find_votes.sort_by(&:created_at).reverse.first(10).map(&:votable)
+  end
+
+  def total_cards
+    cards.size
+  end
+
+  def total_likes
+    find_voted_items.size
   end
 end

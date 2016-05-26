@@ -5,7 +5,7 @@
     </div>
     <div class="content">
       <div class="header">
-        <div><%= @user.email %></div>
+        <%= @user.email %>
       </div>
       <div class="description">
         <%= @user.description %>
@@ -20,7 +20,7 @@
       </span>
     </div>
     <div class="extra content center aligned">
-      <%= render 'statistic', total: @cards.size, label: 'Cards'%>
-      <%= render 'statistic', total: @liked.size, label: 'Likes'%>
+      <%= render 'statistic', total: @total_cards, label: 'Cards'%>
+      <%= render 'statistic', total: @total_likes, label: 'Likes'%>
    </div>
     </div>

@@ -7,7 +7,7 @@
             <%= div_for(card, class: "middle aligned content") do %>
               <%= link_to card.name, card_path(card), class: 'header'%>
               <div class="description">
-                <%= time_ago_in_words(card.created_at) %>
+                <%= time_ago_in_words(card.like_created_at_by(@user)) %>
                 ago
               </div>
             <% end %>
