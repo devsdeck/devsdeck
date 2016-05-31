@@ -11,6 +11,7 @@
         <%= @user.description %>
       </div>
     </div>
+    <% if can? :update, @user %>
     <div class="extra content center aligned">
       <span>
         <%= link_to edit_user_path(@user) do %>
@@ -19,6 +20,7 @@
         <% end %>
       </span>
     </div>
+  <% end %>
     <div class="extra content center aligned">
       <%= render 'statistic', total: @total_cards, label: 'Cards'%>
       <%= render 'statistic', total: @total_likes, label: 'Likes'%>
