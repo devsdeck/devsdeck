@@ -9,5 +9,5 @@ $( document ).on("page:change", function () {
 });
 
 function buttomYet() {
-  return $(document).scrollTop() > $(document).height() - $(window).height() - 50
+  return $(document).scrollTop() > $(document).height() - $(window).height() - 50;
 };
