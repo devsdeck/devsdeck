@@ -1,7 +1,7 @@
-$( document ).on('page:change', function () {
-  $(window).scroll( function(){
+$( document ).on("page:change", function () {
+  $(window).scroll( function() {
     url = $(".pagination a[rel=next]").attr("href");
-    if (url && buttomYet()){
+    if (url && buttomYet()) {
       $(".pagination").text("Getting more cards to show...");
       $.getScript(url);
     }
