@@ -1,13 +1,15 @@
 $( document ).on("page:change", function () {
   $(window).scroll( function() {
-    url = $(".pagination a[rel=next]").attr("href");
+     var url = $(".pagination a[rel=next]").attr("href");
     if (url && buttomYet()) {
       $(".pagination").text("Getting more cards to show...");
       $.getScript(url);
     }
   });
+  $(window).scroll();
 });
 
 function buttomYet() {
-  return $(document).scrollTop() > $(document).height() - $(window).height() - 50;
-};
+  return $(document).scrollTop() > $(document).height()
+    - $(window).height() - 50;
+}
