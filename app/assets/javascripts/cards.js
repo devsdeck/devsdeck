@@ -1,5 +1,5 @@
 $( document ).on("page:change", function () {
-  if ($('.pagination').length) {
+  if ($(".pagination").length) {
     $(window).scroll( function() {
       var url = $(".pagination a[rel=next]").attr("href");
       if (url && buttomYet()) {
@@ -12,6 +12,6 @@ $( document ).on("page:change", function () {
 });
 
 function buttomYet() {
-  return $(document).scrollTop() > $(document).height()
-    - $(window).height() - 50;
+  return $(document).scrollTop() > $(document).height() -
+    $(window).height() - 50;
 }
