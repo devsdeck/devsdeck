@@ -1,11 +1,9 @@
 <div class="ui secondary  menu">
-  <a class="item" href="<%= root_path %>">
-    <h2><i class="diamond icon"></i>DevsDeck</h2>
-  </a>
+  <%= render "shared/header_logo"%>
   <div class="right menu">
     <div class="item">
       <% if current_user %>
-        <%= link_to 'New Card',new_card_path, class: 'ui  red item'%>
+        <%= link_to "New Card",new_card_path, class: "ui  red item"%>
         <div class="ui icon input">
           <%= search_form_for(@q,  method: "get") do %>
             <div class="ui icon input">
@@ -14,27 +12,30 @@
             </div>
           <% end %>
         </div>
-        <div class='ui item'>
-          <img class="ui avatar image" src="<%= avatar_url(current_user) %>">
-          <span><%= current_user.email %></span>
+        <div class="ui item">
+          <span><%= link_to user_path(current_user), class: "ui item" do %>
+            <img class="ui avatar image" src="<%= avatar_url(current_user) %>">
+            <%= current_user.email %>
+          <% end %>
+          </span>
         </div>
     </div>
     <div class="ui right dropdown item">
       <i class="sidebar icon"></i>
       <div class="menu">
-      <%= link_to user_path(current_user), class: 'ui item' do %>
-        <i class="user icon"></i>
-        Profile
-      <% end %>
+        <%= link_to "https://github.com/hosseintoussi/devsdeck/issues/new", class: "ui item" do %>
+          <i class="mail icon"></i>
+          Feedback
+        <% end %>
 
-      <%= link_to destroy_user_session_path, method: :delete, class: 'ui item' do %>
-        <i class="sign out icon"></i>
-        Log out
-      <% end %>
+        <%= link_to destroy_user_session_path, method: :delete, class: "ui item" do %>
+          <i class="sign out icon"></i>
+          Log out
+        <% end %>
       </div>
     </div>
   <% else %>
-    <%= link_to 'Login/Signup', new_user_session_path, class: 'ui item'%>
+    <%= link_to "Login/Signup", new_user_session_path, class: "ui item"%>
   <% end %>
   </div>
 </div>
