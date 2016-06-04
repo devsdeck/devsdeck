@@ -4,9 +4,9 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <p>Hey <%= @user.name %>,</p>
-    <p> Here is a list of cards added today:
-    </p>
+    <p>Hey <%= @user.name.capitalize %>,</p>
+    <br>
+    <p>Check out today's additions to DevsDeck below:</p>
     <ul>
     <% @cards.each do |card| %>
       <li><%= link_to card.name, card_url(card) %></li>
@@ -14,5 +14,6 @@
     </ul>
     <br>
     <p>Thanks and have a great day!</p>
+    <p>DevsDeck team :)</p>
   </body>
 </html>

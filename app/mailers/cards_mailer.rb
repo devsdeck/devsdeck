@@ -4,6 +4,6 @@ class CardsMailer < ApplicationMailer
   def daily_mail(user, cards)
     @user = user
     @cards = cards
-    mail(to: @user.email, subject: "New cards today")
+    mail(to: @user.email, subject: "[DevsDeck] Daily Digest")
   end
 end
