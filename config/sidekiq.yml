@@ -1,0 +1,10 @@
+---
+:verbose: false
+:concurrency: 10
+
+:timeout: 8
+
+production:
+  :concurrency: 15
+staging:
+  :concurrency: 10
