@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>Hey <%= @user.name %>,</p>
+    <p> Here is a list of cards added today:
+    </p>
+    <ul>
+    <% @cards.each do |card| %>
+      <li><%= link_to card.name, card_url(card) %></li>
+    <% end %>
+    </ul>
+    <br>
+    <p>Thanks and have a great day!</p>
+  </body>
+</html>
