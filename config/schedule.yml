@@ -1,0 +1,3 @@
+daily_email:
+  cron: "12 0 * * *"
+  class: "PostmanWorker"

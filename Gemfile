@@ -20,6 +20,7 @@ gem "cancancan", "~> 1.10"
 gem "responders"
 gem "sidekiq"
 gem "sinatra", :require => nil
+gem "sidekiq-cron", "~> 0.4.0"
 
 group :development, :test do
   gem "pry"
