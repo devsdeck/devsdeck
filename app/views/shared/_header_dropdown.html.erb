@@ -1,0 +1,14 @@
+<div class="ui right dropdown item">
+  <i class="sidebar icon"></i>
+  <div class="menu">
+    <%= link_to "https://github.com/hosseintoussi/devsdeck/issues/new", class: "ui item" do %>
+      <i class="mail icon"></i>
+      Feedback
+    <% end %>
+
+    <%= link_to destroy_user_session_path, method: :delete, class: "ui item" do %>
+      <i class="sign out icon"></i>
+      Log out
+    <% end %>
+  </div>
+</div>
