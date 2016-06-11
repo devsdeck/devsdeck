@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :validatable, :confirmable
 
   has_many :cards
-  validates :username, presence: true, uniqueness: true
+  validates :username, presence: true, uniqueness: true, case_sensitive: false
 
   acts_as_voter
 
