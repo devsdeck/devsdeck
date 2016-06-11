@@ -3,7 +3,7 @@
   <div class="column">
     <h4>Forgot your password?</h4>
   <%= devise_error_messages! %>
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: 'ui form' }) do |f| %>
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: 'ui form' }) do |f| %>
 
     <%= render 'layouts/messages' %>
     <div class="ui">
