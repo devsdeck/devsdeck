@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
+  before_action :authenticate_user!
 
   load_and_authorize_resource
 
@@ -29,6 +30,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :description)
+    params.require(:user).permit(:name, :description, :username, :email)
   end
 end
