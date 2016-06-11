@@ -85,7 +85,7 @@ Rails.application.configure do
     domain: "devsdeck.com",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: ENV['SENDINBLUE_USER'],
-    password: ENV['SENDINBLUE_PASS']
+    user_name: ENV["SENDINBLUE_USER"],
+    password: ENV["SENDINBLUE_PASS"]
   }
 end
