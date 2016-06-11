@@ -5,10 +5,13 @@
     </div>
     <div class="content">
       <div class="header">
-        <%= @user.email %>
+        <%= @user.username %>
       </div>
       <div class="description">
-        <%= @user.description %>
+
+      <%= @user.name%>
+      <br>
+      <%= @user.description %>
       </div>
     </div>
     <% if can? :update, @user %>
