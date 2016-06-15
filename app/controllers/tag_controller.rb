@@ -25,5 +25,4 @@ class TagController < ApplicationController
   def set_tag
     @tag = Tag.find(params["id"])
   end
-
 end
