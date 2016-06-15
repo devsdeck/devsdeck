@@ -7,8 +7,7 @@
         <div class="ui icon input">
           <%= search_form_for(@q,  method: "get") do |f| %>
             <div class="ui icon input">
-              <input type="text" name="q[name_cont]" id="q_name_cont" placeholder="Search...">
-              <%= f.search_field card_namre %>
+              <input type="text" name="q[name_or_tags_name_cont]" id="q_name_cont" placeholder="Search...">
               <i class="search icon"></i>
             </div>
           <% end %>
