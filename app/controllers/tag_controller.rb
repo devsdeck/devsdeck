@@ -15,7 +15,7 @@ class TagController < ApplicationController
   def set_search
     @q = Card.ransack(params[:q])
     @q.result.includes(:tags)
-    @q.sorts = 'created_at desc' if @q.sorts.empty?
+    @q.sorts = "created_at desc" if @q.sorts.empty?
   end
 
   # def tag_params
@@ -23,7 +23,7 @@ class TagController < ApplicationController
   # end
 
   def set_tag
-    @tag = Tag.find(params['id'])
+    @tag = Tag.find(params["id"])
   end
 
 end
