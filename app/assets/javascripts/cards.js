@@ -1,5 +1,4 @@
 (function(){
-    console.log('cards.js');
 
     $( document ).on("page:change", function () {
         if ($(".pagination").length) {
