@@ -5,7 +5,7 @@
       <% if current_user %>
         <%= link_to "New Card",new_card_path, class: "ui  red item"%>
         <div class="ui icon input">
-          <%= search_form_for(@q,  method: "get") do |f| %>
+          <%= search_form_for(@q,  method: "get") do %>
             <div class="ui icon input">
               <input type="text" name="q[name_or_tags_name_cont]" id="q_name_cont" placeholder="Search...">
               <i class="search icon"></i>
