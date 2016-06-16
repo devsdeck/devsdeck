@@ -10,9 +10,9 @@
    </div>
  </div>
  <div class="extra content">
-   <% @card.tags.each do |t| %>
-     <a class="ui tag label"><%= t.name %></a>
-   <% end %>
+  <% @card.tags.each do |t| %>
+       <a class="ui tag label" href="<%= url_for tag_cards_path(t) %>"><%= t.name %></a>
+  <% end %>
    <span class="right floated">
     <div id="likes_<%= @card.id %>">
       <%= render 'likes', card: @card %>

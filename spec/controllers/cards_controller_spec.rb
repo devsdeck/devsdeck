@@ -50,7 +50,7 @@ RSpec.describe CardsController, type: :controller do
     context 'with valid params' do
       it 'creates a new Card' do
         expect { post :create, card: valid_attributes }
-          .to change(Card, :count).by(1)
+            .to change(Card, :count).by(1)
       end
 
       it 'assigns a newly created card as @card' do
@@ -128,7 +128,7 @@ RSpec.describe CardsController, type: :controller do
     it 'does not the requested card' do
       card = Card.create! valid_attributes
       expect { delete :destroy, id: card.to_param }
-        .to change(Card, :count).by(0)
+          .to change(Card, :count).by(0)
     end
 
     it 'redirects to the card list' do

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "tags/:id/cards" => "tags#cards", as: "tag_cards"
+
   devise_for :users
   resources :users
 
