@@ -1,22 +1,10 @@
-<div class="ui secondary  menu">
+<div class="ui secondary menu">
   <%= render "shared/header_logo"%>
   <div class="right menu">
-    <div class="item">
-      <% if current_user %>
-        <%= link_to "New Card",new_card_path, class: "ui  red item"%>
-        <div class="ui icon input">
-
-        </div>
-        <div class="ui item">
-          <span><%= link_to user_path(current_user), class: "ui item" do %>
-            <img class="ui avatar image" src="<%= avatar_url(current_user) %>">
-            <%= current_user.username %>
-          <% end %>
-          </span>
-        </div>
-    </div>
-    <%= render "shared/header_dropdown" %>
-  <% end %>
+    <% if current_user %>
+      <%= render "shared/header_create_button" %>
+      <%= render "shared/header_user" %>
+      <%= render "shared/header_dropdown" %>
+    <% end %>
   </div>
-</div>
 </div>

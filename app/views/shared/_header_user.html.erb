@@ -1,0 +1,7 @@
+<div class="ui item">
+  <span><%= link_to user_path(current_user), class: "ui item" do %>
+    <img class="ui avatar image" src="<%= avatar_url(current_user) %>">
+    <%= current_user.username %>
+  <% end %>
+  </span>
+</div>
