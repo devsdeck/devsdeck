@@ -3,7 +3,7 @@
   <div class="content">
     <a class="header"><%= @card.name %></a>
     <div class="meta">
-      <span class="date"><%= @card.user.email %> <i class="mini circle icon"></i> <%= time_ago_in_words(@card.created_at) %> ago</span>
+      <span class="date"><%= link_to @card.user.username, @card.user %><i class="mini circle icon"></i> <%= time_ago_in_words(@card.created_at) %> ago</span>
     </div>
     <div class="description">
      <%= markdown(@card.description) %>
