@@ -10,6 +10,7 @@ RSpec.describe CardsController, type: :controller do
   end
 
   before do
+    user.confirm
     sign_in user
   end
 
