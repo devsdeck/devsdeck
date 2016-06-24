@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get "tags/:id/cards" => "tags#cards", as: "tag_cards"
+  get 'tags/:id/cards' => 'tags#cards', as: 'tag_cards'
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :users
 
   resources :cards do
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'cards#index'
+  root 'cards#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

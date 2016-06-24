@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable,
          :validatable, :confirmable
-  devise :omniauthable, :omniauth_providers => [:github]
+  devise :omniauthable, omniauth_providers: [:github]
 
   has_many :cards
   validates :username, presence: true, uniqueness: true, case_sensitive: false
