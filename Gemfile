@@ -19,6 +19,8 @@ gem 'puma'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'cancancan', '~> 1.10'
 gem 'responders'
+gem 'font-awesome-rails'
+gem 'omniauth-github'
 
 group :development, :test do
   gem 'pry'

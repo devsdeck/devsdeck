@@ -20,6 +20,16 @@
       <%= f.button "Log in", class: 'ui fluid submit button', data: { disable_with: '<i class="spinner icon"></i> Logging in...'}%>
     </div>
     <% end %>
+
+    <%- if devise_mapping.omniauthable? %>
+      <%- resource_class.omniauth_providers.each do |provider| %>
+        <div class="ui horizontal divider">Or</div>
+        <%= link_to user_omniauth_authorize_path(:github) do %>
+          <button class="ui fluid submit button"><i class="fa fa-<%= provider %>" aria-hidden="true"></i> Sign in with <%= OmniAuth::Utils.camelize(provider) %></button>
+        <% end %>
+      <% end -%>
+    <% end -%>
+
     <div class="ui message">
       <%= render "devise/shared/links" %>
     </div>
