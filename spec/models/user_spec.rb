@@ -4,6 +4,7 @@ RSpec.describe User, type: :model do
   let!(:user) { FactoryGirl.create(:user) }
 
   it { should have_many(:cards) }
+  it { should validate_presence_of(:username) }
 
   describe "#latest_cards" do
     it "should display the lastet cards in a DESC order" do

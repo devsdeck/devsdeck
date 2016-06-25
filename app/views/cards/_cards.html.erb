@@ -4,7 +4,7 @@
     <div class="content">
       <%= link_to card.name, card_path(card), class: 'header'%>
       <div class="meta">
-        <span class="date"><%= link_to card.user.try(:username), card.user %> <i class="mini circle icon"></i> <%= time_ago_in_words(card.created_at) %> ago</span>
+        <span class="date"><%= link_to card.user.username, card.user %> <i class="mini circle icon"></i> <%= time_ago_in_words(card.created_at) %> ago</span>
       </div>
       <div class="description">
        <%= markdown(card.description) %>
