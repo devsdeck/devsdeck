@@ -23,8 +23,6 @@
 #
 
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable,
          :validatable, :confirmable
@@ -54,8 +52,9 @@ class User < ActiveRecord::Base
   def self.from_github_omniauth(auth)
     user = find_or_create_by(email: auth.info.email) do |user|
       user.email = auth.info.email
-      user.password = Devise.friendly_token[0,20]
-      user.name = auth.info.name   # assuming the user model has a name
+      user.password = Devise.friendly_token[0, 20]
+      user.name = auth.info.name
+      user.username = auth.info.nickname
     end
 
     if user.provider.blank? || user.uid.blank?

@@ -45,4 +45,13 @@ RSpec.describe User, type: :model do
       expect(user.total_likes).to eq(2)
     end
   end
+
+  describe ".from_github_omniauth" do
+    it "should save the user" do
+      auth = OmniAuth.config.mock_auth[:github]
+      User.from_github_omniauth(auth)
+
+      expect(User.last.email).to eq("test@example.com")
+    end
+  end
 end
