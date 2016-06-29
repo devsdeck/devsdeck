@@ -27,6 +27,7 @@ group :development, :test do
   gem "factory_girl_rails", "~> 4.0"
   gem "shoulda-matchers"
   gem "better_errors"
+  gem "dotenv-rails"
 end
 
 group :development do

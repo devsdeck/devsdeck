@@ -45,4 +45,8 @@ RSpec.describe User, type: :model do
       expect(user.total_likes).to eq(2)
     end
   end
+
+  describe ".from_github_omniauth" do
+
+  end
 end
