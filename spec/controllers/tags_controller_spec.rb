@@ -19,7 +19,7 @@ RSpec.describe TagsController, type: :controller do
     it "gets all the cards of a specific tag and assigns them to @cards" do
       card1 = Card.create(attributes1)
       card2 = Card.create(attributes2)
-      get :cards, { id: tag.id }
+      get :cards, id: tag.id
 
       expect(assigns(:cards)).to eq([card1])
     end
