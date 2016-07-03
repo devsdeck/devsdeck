@@ -10,13 +10,13 @@ class TagsController < ApplicationController
   private
 
   def set_cards
-    @cards = @tag.cards
+    @cards = @tag.cards.order("created_at DESC")
   end
 
   def set_search
     @q = Card.ransack(params[:q])
     @q.result.includes(:tags)
-    @q.sorts = "created_at desc" if @q.sorts.empty?
+    @q.sorts = "created_at DESC" if @q.sorts.empty?
   end
 
   def set_tag

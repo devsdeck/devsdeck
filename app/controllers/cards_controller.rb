@@ -55,7 +55,7 @@ class CardsController < ApplicationController
 
   def set_search
     @q = Card.ransack(params[:q])
-    @q.sorts = 'created_at desc' if @q.sorts.empty?
+    @q.sorts = "created_at DESC" if @q.sorts.empty?
   end
 
   def set_tags
