@@ -7,7 +7,7 @@ class CardsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @cards = @q.result.includes(:user, :tags).page params[:page]
+    @cards = @q.result(distinct: true).includes(:user, :tags).page params[:page]
    end
 
   def show
@@ -55,8 +55,7 @@ class CardsController < ApplicationController
 
   def set_search
     @q = Card.ransack(params[:q])
-    @q.result.includes(:tags)
-    @q.sorts = 'created_at desc' if @q.sorts.empty?
+    @q.sorts = "created_at DESC" if @q.sorts.empty?
   end
 
   def set_tags
