@@ -1,0 +1,10 @@
+// Append new data
+$("<%= escape_javascript(render("cards/cards", cards: @cards)) %>")
+  .appendTo($("#cards"));
+// Update pagination link
+<% if @cards.last_page? %>
+  $('.pagination').html("That's all!");
+<% else %>
+  $('.pagination')
+    .html("<%=j link_to_next_page(@cards, 'Load more..', :remote => true) %>");
+<% end %>

@@ -10,7 +10,7 @@ class TagsController < ApplicationController
   private
 
   def set_cards
-    @cards = @tag.cards.order("created_at DESC")
+    @cards = @tag.cards.order("created_at DESC").page params[:page]
   end
 
   def set_search
