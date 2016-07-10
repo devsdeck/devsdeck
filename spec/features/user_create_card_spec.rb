@@ -8,7 +8,7 @@ RSpec.feature "user visits create card page", type: :feature do
     user = FactoryGirl.create(:user)
     user.confirm
     LoginPage.new.login(email: user.email, password: user.password)
-    CreateCardPage.new.create(name:"test", desc: "this is a test")
+    CreateCardPage.new.create(name: "test", desc: "this is a test")
 
     expect(page).to have_content("Card was successfully created.")
   end
@@ -18,7 +18,7 @@ RSpec.feature "user visits create card page", type: :feature do
     user = FactoryGirl.create(:user)
     user.confirm
     LoginPage.new.login(email: user.email, password: user.password)
-    CreateCardPage.new.create(name:"", desc: "this is a test")
+    CreateCardPage.new.create(name: "", desc: "this is a test")
 
     expect(page).to have_content("Name can't be blank")
   end
