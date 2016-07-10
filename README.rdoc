@@ -1,4 +1,5 @@
-== DevsDeck [![Build Status](https://travis-ci.org/hosseintoussi/devsdeck.svg?branch=master)]
+== DevsDeck 
+![Build Status](https://travis-ci.org/hosseintoussi/devsdeck.svg?branch=master)
 
 Devsdeck.com is a community where developers share their quick notes with others. 
 
