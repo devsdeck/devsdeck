@@ -2,7 +2,7 @@ require "rails_helper"
 require_relative "./page_objects/login_page"
 require_relative "./page_objects/create_card_page"
 
-RSpec.feature "user visits create card page", :type => :feature do
+RSpec.feature "user visits create card page", type: :feature do
   scenario "and successfully adds a card" do
     FactoryGirl.create(:tag, name: "TestTag")
     user = FactoryGirl.create(:user)

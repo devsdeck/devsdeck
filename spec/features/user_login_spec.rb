@@ -1,7 +1,7 @@
 require "rails_helper"
 require_relative "./page_objects/login_page"
 
-RSpec.feature "user visits login page", :type => :feature do
+RSpec.feature "user visits login page", type: :feature do
   scenario "and logs in successfully" do
     user = FactoryGirl.create(:user)
     user.confirm
