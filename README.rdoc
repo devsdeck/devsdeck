@@ -1,4 +1,0 @@
-== DevsDeck 
-
-Devsdeck.com is a community where developers share their quick notes with others. 
-
