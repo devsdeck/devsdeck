@@ -6,7 +6,7 @@
         <%= link_to "https://www.facebook.com/sharer/sharer.php?u=#{card_url(card)}", target: "_blank" do %>
            <i class="facebook icon"></i>
          <% end %>
-         <%= link_to "http://twitter.com/home?status=DevsDeck - #{card.name} #{card_url(card)}", target: "_blank" do %>
+         <%= link_to "http://twitter.com/share?text=#{card.name}&url=#{card_url(card)}&hashtags=DevsDeck", target: "_blank" do %>
            <i class="twitter icon"></i>
          <% end %>
       </div>
