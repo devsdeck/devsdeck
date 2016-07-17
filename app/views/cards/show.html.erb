@@ -1,4 +1,10 @@
-<%= render 'layouts/messages' %>
+<% content_for :head do %>
+  <meta property="og:url"           content="#{@card.url}" />
+  <meta property="og:type"          content=sdff:post" />
+  <meta property="og:title"         content="#{@card.name}" />
+  <meta property="og:image"         content="" />
+<% end %>
+<%= render "layouts/messages" %>
 <div class="green ui fluid card">
   <div class="content">
     <a class="header"><%= @card.name %></a>
@@ -15,12 +21,12 @@
   <% end %>
    <span class="right floated">
     <div id="likes_<%= @card.id %>">
-      <%= render 'likes', card: @card %>
+      <%= render "likes", card: @card %>
     </div>
   </span>
 </div>
 </div>
 <% if can? :update, @card %>
-<%= link_to 'Edit', edit_card_path(@card) %> |
+<%= link_to "Edit", edit_card_path(@card) %> |
 <% end %>
-<%= link_to 'Back', cards_path %>
+<%= link_to "Back", cards_path %>
