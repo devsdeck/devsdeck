@@ -50,11 +50,12 @@ class User < ActiveRecord::Base
   end
 
   def self.from_github_omniauth(auth)
-    user = find_or_create_by(email: auth.info.email) do |user|
+    user = find_or_initialize_by(email: auth.info.email) do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
       user.name = auth.info.name
       user.username = auth.info.nickname
+      user.skip_confirmation! if user.new_record?
     end
 
     if user.provider.blank? || user.uid.blank?
