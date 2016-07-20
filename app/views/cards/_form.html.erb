@@ -18,11 +18,15 @@
 <div class="field">
   <%= f.label :description %><br>
   <%= f.text_area :description,
-    placeholder: "To have a codeblock you can have three backticks around your code, and you can specify a language:
+    placeholder: "To use code blocks you can surround your code with three backticks, and you can also specify a language for highlighting:
+    ```
+    # your code goes here...
+    ```
+    or
     ``` ruby
     # your code goes here...
     ```" %>
-  We use RedCarpet Markdown. If you more need help with syntaxes we recommend you to refer to <a href="https://caleorourke.gitbooks.io/redcarpet-syntax/content/code/index.html">this documentation</a>.
+  We use RedCarpet Markdown. If you need more help with syntaxes we recommend you to refer to <a href="https://caleorourke.gitbooks.io/redcarpet-syntax/content/code/index.html">this documentation</a>.
 </div>
 <div class="field">
     <%= f.label :tags %><br>
