@@ -19,6 +19,11 @@ table.CodeRay td {
   vertical-align: top;
 }
 
+blockquote {
+  border-left: 3px solid #F7F7F7;
+  padding-left: 15px;
+}
+
 .CodeRay .line-numbers, .CodeRay .no {
   background-color: #ECECEC;
   color: #AAA;
@@ -28,7 +33,6 @@ table.CodeRay td {
 .CodeRay .line-numbers a {
   color: #AAA;
 }
-
 .CodeRay .line-numbers tt { font-weight: bold }
 .CodeRay .line-numbers .highlighted { color: red }
 .CodeRay .line { display: block; float: left; width: 100%; }
