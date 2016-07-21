@@ -1,8 +1,7 @@
 <div id="disqus_thread"></div>
 <script>
 var disqus_config = function () {
-  this.page.url = <%= card_url(@card) %>;
-  this.page.identifier = <%= @card.id %>;
+  this.page.identifier = <%= card_path(@card) %>;
   // to_s is because of weird errors that happened locally with an edgecase that was somehow not passing string.
   this.page.title = <%= @card.name.to_s %>;
 };
