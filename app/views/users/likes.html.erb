@@ -1,0 +1,6 @@
+<div id="cards">
+<%= render "cards/cards", cards: @all_likes %>
+</div>
+<p class="pagination">
+  <%= link_to_next_page(@all_likes, "Load more...", :remote => true) %>
+</p>

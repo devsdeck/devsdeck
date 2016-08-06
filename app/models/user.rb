@@ -34,11 +34,21 @@ class User < ActiveRecord::Base
   acts_as_voter
 
   def latest_cards
-    cards.order("created_at DESC").limit(10)
+    all_added_cards.limit(10)
   end
 
   def latest_likes
-    find_votes.sort_by(&:created_at).reverse.first(10).map(&:votable)
+    all_liked_cards.limit(10)
+  end
+
+  def all_added_cards
+    cards.includes(:tags).order("created_at DESC")
+  end
+
+  def all_liked_cards
+    Card.includes(:tags).joins("INNER JOIN votes on votes.votable_id = cards.id")
+      .where("votes.voter_id = #{id}")
+      .order("votes.created_at DESC")
   end
 
   def total_cards

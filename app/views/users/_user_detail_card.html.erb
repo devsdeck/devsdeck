@@ -23,6 +23,18 @@
         <% end %>
       </span>
     </div>
+    <div class="extra content center aligned">
+      <%= link_to user_cards_path(@user) do %>
+        <i class="file outline icon"></i>
+        All Cards
+      <% end %>
+    </div>
+    <div class="extra content center aligned">
+      <%= link_to user_likes_path(@user) do %>
+        <i class="empty heart icon"></i>
+        All Likes
+      <% end %>
+    </div>
   <% end %>
     <div class="extra content center aligned">
       <%= render 'statistic', total: @total_cards, label: 'Cards'%>
