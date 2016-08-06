@@ -24,6 +24,11 @@ blockquote {
   padding-left: 15px;
 }
 
+code {
+  background-color: #F7F7F7;
+  padding: 3px;
+}
+
 .CodeRay .line-numbers, .CodeRay .no {
   background-color: #ECECEC;
   color: #AAA;
