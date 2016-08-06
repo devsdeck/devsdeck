@@ -24,11 +24,11 @@ class UsersController < ApplicationController
   end
 
   def cards
-    @all_cards = @user.all_added_cards
+    @all_cards = @user.all_added_cards.page params[:page]
   end
 
   def likes
-    @all_likes = @user.all_liked_cards
+    @all_likes = @user.all_liked_cards.page params[:page]
   end
 
   private
