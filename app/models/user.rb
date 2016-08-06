@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
   end
 
   def all_added_cards
-    cards.order("created_at DESC")
+    cards.includes(:tags).order("created_at DESC")
   end
 
   def all_liked_cards

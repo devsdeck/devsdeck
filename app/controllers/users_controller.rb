@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update]
-  before_action :authenticate_user!
+  before_action :set_user, only: [:show, :edit, :update, :cards, :likes]
+  before_action :authenticate_user!, except: [:cards, :likes]
 
   load_and_authorize_resource
 
@@ -21,6 +21,14 @@ class UsersController < ApplicationController
   end
 
   def edit
+  end
+
+  def cards
+    @all_cards = @user.all_added_cards
+  end
+
+  def likes
+    @all_likes = @user.all_liked_cards
   end
 
   private
