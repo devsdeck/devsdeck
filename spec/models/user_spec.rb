@@ -46,6 +46,18 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe "#all_liked_cards" do
+    it "should return all the cards that user liked in a DESC order" do
+      card1 = FactoryGirl.create(:card, name: "card_one", user: user)
+      card2 = FactoryGirl.create(:card, name: "card_two", user: user)
+      card1.liked_by(user)
+      card2.liked_by(user)
+
+      expect(user.all_liked_cards.count).to eq(2)
+      expect(user.all_liked_cards.first.name).to eq("card_two")
+    end
+  end
+
   describe ".from_github_omniauth" do
     it "should save the user" do
       auth = OmniAuth.config.mock_auth[:github]
