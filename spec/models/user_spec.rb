@@ -46,6 +46,16 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe "#all_added_cards" do
+    it "should display the lastet cards in a DESC order" do
+      FactoryGirl.create(:card, name: "card_one", user: user)
+      FactoryGirl.create(:card, name: "card_two", user: user)
+
+      expect(user.all_added_cards.count).to eq(2)
+      expect(user.all_added_cards.first.name).to eq("card_two")
+    end
+  end
+
   describe "#all_liked_cards" do
     it "should return all the cards that user liked in a DESC order" do
       card1 = FactoryGirl.create(:card, name: "card_one", user: user)

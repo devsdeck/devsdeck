@@ -34,11 +34,15 @@ class User < ActiveRecord::Base
   acts_as_voter
 
   def latest_cards
-    cards.order("created_at DESC").limit(10)
+    all_added_cards.limit(10)
   end
 
   def latest_likes
     all_liked_cards.limit(10)
+  end
+
+  def all_added_cards
+    cards.order("created_at DESC")
   end
 
   def all_liked_cards
