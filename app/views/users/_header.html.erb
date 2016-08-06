@@ -5,6 +5,8 @@
       <%= render "shared/header_create_button" %>
       <%= render "shared/header_user" %>
       <%= render "shared/header_dropdown" %>
+    <% else %>
+      <%= link_to "Login/Signup", new_user_session_path, class: "ui item" %>
     <% end %>
   </div>
 </div>
