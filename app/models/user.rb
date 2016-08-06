@@ -46,7 +46,7 @@ class User < ActiveRecord::Base
   end
 
   def all_liked_cards
-    Card.joins("INNER JOIN votes on votes.votable_id = cards.id")
+    Card.includes(:tags).joins("INNER JOIN votes on votes.votable_id = cards.id")
       .where("votes.voter_id = #{id}")
       .order("votes.created_at DESC")
   end
