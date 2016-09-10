@@ -6,7 +6,7 @@ class Ability
     if user.admin?
       can :manage, :all
     else
-      can [:read, :create, :like], Card
+      can [:read, :create, :like_or_unlike], Card
       can [:update], Card do |card|
         card.owned_by?(user)
       end
