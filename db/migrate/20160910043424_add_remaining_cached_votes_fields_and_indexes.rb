@@ -3,9 +3,9 @@ class AddRemainingCachedVotesFieldsAndIndexes < ActiveRecord::Migration
     add_column :cards, :cached_votes_score, :integer, default: 0
     add_column :cards, :cached_votes_up, :integer, default: 0
     add_column :cards, :cached_votes_down, :integer, default: 0
-    add_column :cards, :cached_weighted_score, :integer, :default => 0
-    add_column :cards, :cached_weighted_total, :integer, :default => 0
-    add_column :cards, :cached_weighted_average, :float, :default => 0.0
+    add_column :cards, :cached_weighted_score, :integer, default: 0
+    add_column :cards, :cached_weighted_total, :integer, default: 0
+    add_column :cards, :cached_weighted_average, :float, default: 0.0
 
     add_index  :cards, :cached_votes_score
     add_index  :cards, :cached_votes_up
