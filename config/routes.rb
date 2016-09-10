@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
 
   resources :cards do
-    patch 'like_or_unlike'
+    patch "like_or_unlike"
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
