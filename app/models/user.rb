@@ -18,6 +18,10 @@
 #  admin                  :boolean          default(FALSE)
 #  name                   :string
 #  description            :text
+#  confirmation_token     :string
+#  confirmed_at           :datetime
+#  confirmation_sent_at   :datetime
+#  username               :string
 #  provider               :string
 #  uid                    :string
 #
