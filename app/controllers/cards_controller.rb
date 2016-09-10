@@ -1,8 +1,8 @@
 class CardsController < ApplicationController
-  before_action :set_card, only: [:show, :edit, :update, :destroy, :like]
-  before_action :set_search, except: [:like]
-  before_action :set_tags, except: [:index, :show, :like]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_card, only: [:show, :edit, :update, :destroy, :like_or_unlike]
+  before_action :set_search, except: [:like_or_unlike]
+  before_action :set_tags, except: [:index, :show, :like_or_unlike]
+  before_action :authenticate_user!, except: :index
 
   load_and_authorize_resource
 
@@ -38,9 +38,13 @@ class CardsController < ApplicationController
     respond_with(@card)
   end
 
-  def like
+  def like_or_unlike
     return unless current_user
-    @card.upvote_by current_user
+    if current_user.voted_up_on? @card
+      @card.downvote_by current_user
+    else
+      @card.upvote_by current_user
+    end
   end
 
   private
