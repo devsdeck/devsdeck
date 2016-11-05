@@ -21,6 +21,9 @@
 
 en:
   controllers:
+    users:
+      check_own!:
+        not_you: 'This is not you.'
     cards:
       check_own!:
         not_your_card: 'This is not your card.'
