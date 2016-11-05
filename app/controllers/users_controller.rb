@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :cards, :likes]
-  before_action :check_own!, only: [:edit, :update]
-  before_action :authenticate_user!, except: [:show, :cards, :likes]
+  before_action :authenticate_user!, except: [:cards, :likes]
 
   load_and_authorize_resource
 
@@ -40,9 +39,5 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :description, :username, :email)
-  end
-
-  def check_own!
-    redirect_to(user_path(@user), alert: I18n.t('controllers.users.check_own!.not_you')) unless @user == current_user
   end
 end

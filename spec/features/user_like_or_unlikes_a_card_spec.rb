@@ -1,8 +1,8 @@
 require "rails_helper"
 require_relative "./page_objects/login_page"
 
-RSpec.describe "user reads cards", type: :feature do
-  it "and successfully likes a card", js: true do
+RSpec.feature "user reads cards", type: :feature do
+  scenario "and successfully likes a card", js: true do
     FactoryGirl.create(:tag, name: "TestTag")
     user = FactoryGirl.create(:user)
     user.confirm
@@ -14,7 +14,7 @@ RSpec.describe "user reads cards", type: :feature do
     expect(find("#likes_#{card.id}").text).to have_content("1")
   end
 
-  it "and successfully unlikes a card", js: true do
+  scenario "and successfully unlikes a card", js: true do
     FactoryGirl.create(:tag, name: "TestTag")
     user = FactoryGirl.create(:user)
     user.confirm
