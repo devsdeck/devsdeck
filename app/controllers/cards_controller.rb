@@ -1,5 +1,6 @@
 class CardsController < ApplicationController
   before_action :set_card, only: [:show, :edit, :update, :destroy, :like_or_unlike]
+  before_action :check_own!, only: [:edit, :update, :destroy]
   before_action :set_search, except: [:like_or_unlike]
   before_action :set_tags, except: [:index, :show, :like_or_unlike]
   before_action :authenticate_user!, except: [:index, :show]
@@ -64,5 +65,9 @@ class CardsController < ApplicationController
 
   def set_tags
     @all_tags = Tag.all.uniq
+  end
+
+  def check_own!
+    redirect_to(card_path(@card), alert: I18n.t('controllers.cards.check_own!.not_your_card')) unless @card && @card.user == current_user
   end
 end
