@@ -2,7 +2,7 @@ class TagsController < ApplicationController
   before_action :set_tag
   before_action :set_cards
   before_action :set_search
-  before_action :authenticate_user!, except: [:cards]
+  before_action :authenticate_user!
 
   def cards
   end

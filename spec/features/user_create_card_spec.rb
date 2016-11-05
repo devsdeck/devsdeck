@@ -2,8 +2,8 @@ require "rails_helper"
 require_relative "./page_objects/login_page"
 require_relative "./page_objects/create_card_page"
 
-RSpec.describe "user visits create card page", type: :feature do
-  it "and successfully adds a card" do
+RSpec.feature "user visits create card page", type: :feature do
+  scenario "and successfully adds a card" do
     FactoryGirl.create(:tag, name: "TestTag")
     user = FactoryGirl.create(:user)
     user.confirm
@@ -13,7 +13,7 @@ RSpec.describe "user visits create card page", type: :feature do
     expect(page).to have_content("Card was successfully created.")
   end
 
-  it "and can't add a card with no name" do
+  scenario "and can't add a card with no name" do
     FactoryGirl.create(:tag, name: "TestTag")
     user = FactoryGirl.create(:user)
     user.confirm

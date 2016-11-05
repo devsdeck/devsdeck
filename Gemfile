@@ -32,7 +32,6 @@ group :development, :test do
   gem "shoulda-matchers"
   gem "better_errors"
   gem "dotenv-rails"
-  gem "faker"
 end
 
 group :development do

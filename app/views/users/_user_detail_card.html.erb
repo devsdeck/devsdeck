@@ -15,15 +15,14 @@
       </div>
     </div>
     <% if can? :update, @user %>
-      <div class="extra content center aligned">
-        <span>
-          <%= link_to edit_user_path(@user) do %>
-            <i class="edit icon"></i>
-            Edit Profile
-          <% end %>
-        </span>
-      </div>
-    <% end %>
+    <div class="extra content center aligned">
+      <span>
+        <%= link_to edit_user_path(@user) do %>
+          <i class="edit icon"></i>
+          Edit Profile
+        <% end %>
+      </span>
+    </div>
     <div class="extra content center aligned">
       <%= link_to user_cards_path(@user) do %>
         <i class="file outline icon"></i>
@@ -36,7 +35,7 @@
         All Likes
       <% end %>
     </div>
-
+  <% end %>
     <div class="extra content center aligned">
       <%= render 'statistic', total: @total_cards, label: 'Cards'%>
       <%= render 'statistic', total: @total_likes, label: 'Likes'%>
