@@ -8,7 +8,7 @@ def article_creator(user, article_parts, tags)
 end
 
 if Rails.env == 'development'
-  user = User.new(username: 'sample_user', email: 'user@example.com', password: 'abcd1234')
+  user = User.new(username: Faker::Internet.user_name, email: Faker::Internet.safe_email, password: 'abcd1234')
   user.skip_confirmation!
   user.save
 
