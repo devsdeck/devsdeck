@@ -1,8 +1,8 @@
 require "rails_helper"
 require_relative "./page_objects/login_page"
 
-RSpec.feature "user visits login page", type: :feature do
-  scenario "and logs in successfully" do
+RSpec.describe "user visits login page", type: :feature do
+  it "and logs in successfully" do
     user = FactoryGirl.create(:user)
     user.confirm
     LoginPage.new.login(email: user.email, password: user.password)
@@ -11,7 +11,7 @@ RSpec.feature "user visits login page", type: :feature do
     expect(current_path).to eq(root_path)
   end
 
-  scenario "and can't login with wrong password" do
+  it "and can't login with wrong password" do
     user = FactoryGirl.create(:user)
     user.confirm
     LoginPage.new.login(email: user.email, password: "test")

@@ -100,7 +100,8 @@ RSpec.describe CardsController, type: :controller do
       it 'redirects to root because user does not own the card' do
         card = Card.create! valid_attributes
         put :update, id: card.to_param, card: valid_attributes
-        expect(response).to redirect_to(root_path)
+        expect(flash[:alert]).to eq(I18n.t('controllers.cards.check_own!.not_your_card'))
+        expect(response).to redirect_to(card)
       end
 
       it 'redirects to card' do
@@ -135,7 +136,8 @@ RSpec.describe CardsController, type: :controller do
     it 'redirects to the card list' do
       card = Card.create! valid_attributes
       delete :destroy, id: card.to_param
-      expect(response).to redirect_to(root_path)
+      expect(flash[:alert]).to eq(I18n.t('controllers.cards.check_own!.not_your_card'))
+      expect(response).to redirect_to(card)
     end
   end
 end
