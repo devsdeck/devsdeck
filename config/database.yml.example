@@ -16,8 +16,5 @@ test: &test
   username: postgres
   password: postgres
 
-staging:
-  <<: *dev
-
 production:
   <<: *dev

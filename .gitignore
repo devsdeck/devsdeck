@@ -15,3 +15,6 @@
 .idea
 .*.swp
 .*.swo
+
+# Ignore database configuration
+config/database.yml
