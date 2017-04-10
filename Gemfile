@@ -33,6 +33,7 @@ group :development, :test do
   gem "better_errors"
   gem "dotenv-rails"
   gem "faker"
+  gem "mailcatcher"
 end
 
 group :development do

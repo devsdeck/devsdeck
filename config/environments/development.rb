@@ -40,15 +40,12 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { host: "devsdeck.com" }
+  config.action_mailer.default_url_options = {
+    host: "localhost:#{ENV["PORT"] || "3000"}"
+  }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: "smtp-relay.sendinblue.com",
-    port: 587,
-    domain: "devsdeck.com",
-    authentication: "plain",
-    enable_starttls_auto: true,
-    user_name: ENV["SENDINBLUE_USER"],
-    password: ENV["SENDINBLUE_PASS"]
+    address: "localhost",
+    port: 1025
   }
 end
