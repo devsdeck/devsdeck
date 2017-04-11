@@ -63,6 +63,6 @@ class CardsController < ApplicationController
   end
 
   def set_tags
-    @all_tags = Tag.all.uniq
+    @all_tags = Tag.all.distinct
   end
 end

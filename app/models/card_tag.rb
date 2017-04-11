@@ -9,7 +9,7 @@
 #  updated_at :datetime         not null
 #
 
-class CardTag < ActiveRecord::Base
+class CardTag < ApplicationRecord
   belongs_to :card
   belongs_to :tag
 end
