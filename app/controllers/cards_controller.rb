@@ -8,7 +8,7 @@ class CardsController < ApplicationController
 
   def index
     @cards = @q.result(distinct: true).includes(:user, :tags).page params[:page]
-   end
+  end
 
   def show
   end
