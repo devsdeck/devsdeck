@@ -22,7 +22,7 @@ module ApplicationHelper
       }
       markdown_to_html = Redcarpet::Markdown.new(coderayified, options)
       markdown_to_html.render(text).html_safe
-    rescue StandardError => e
+    rescue StandardError
       flash.alert = 'Unable to render Markdown!'
       text
     end
