@@ -21,6 +21,9 @@ gem "cancancan", "~> 1.10"
 gem "responders"
 gem "omniauth-github"
 
+## compatibility gems, to be removed:
+gem "record_tag_helper"
+
 group :development, :test do
   gem "pry"
   gem "rspec-rails", "~> 3.1"
@@ -34,6 +37,9 @@ group :development, :test do
   gem "dotenv-rails"
   gem "faker"
   gem "mailcatcher"
+
+  ## compatibility gems, to be removed:
+  gem "rails-controller-testing"
 end
 
 group :development do
