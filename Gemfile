@@ -26,11 +26,11 @@ gem "record_tag_helper"
 
 group :development, :test do
   gem "pry"
-  gem "rspec-rails", "~> 3.1"
+  gem "pry-byebug"
+  gem "rspec-rails", "~> 3.5"
   gem "factory_girl_rails", "~> 4.0"
   gem "capybara"
-  gem "selenium-webdriver"
-  gem "chromedriver-helper"
+  gem "poltergeist"
   gem "database_cleaner"
   gem "shoulda-matchers"
   gem "better_errors"
@@ -45,6 +45,7 @@ end
 group :development do
   gem "web-console", "~> 2.0"
   gem "spring"
+  gem "spring-commands-rspec"
   gem "rack-mini-profiler"
   gem "annotate"
 end
