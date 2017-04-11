@@ -4,6 +4,7 @@ require "spec_helper"
 require "rspec/rails"
 require "capybara/rspec"
 require "devise"
+require "capybara/poltergeist"
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
@@ -27,10 +28,6 @@ omniauth_hash = {
     }
 }
 OmniAuth.config.add_mock(:github, omniauth_hash)
-
-Capybara.register_driver :selenium do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome)
-end
 
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -61,3 +58,5 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 end
+
+Capybara.javascript_driver = :poltergeist
