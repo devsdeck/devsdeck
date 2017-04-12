@@ -17,3 +17,4 @@
 .*.swo
 
 config/database.yml
+.byebug_history
