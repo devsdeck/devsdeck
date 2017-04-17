@@ -1,9 +1,10 @@
 ENV["RAILS_ENV"] ||= "test"
-require "spec_helper"
 require File.expand_path("../../config/environment", __FILE__)
+require "spec_helper"
 require "rspec/rails"
 require "capybara/rspec"
 require "devise"
+require "capybara/poltergeist"
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
@@ -28,15 +29,14 @@ omniauth_hash = {
 }
 OmniAuth.config.add_mock(:github, omniauth_hash)
 
-Capybara.register_driver :selenium do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome)
-end
-
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
-  config.include Devise::TestHelpers, :type => :controller
+  config.include Devise::Test::ControllerHelpers, type: :controller
   config.use_transactional_fixtures = false
   config.infer_spec_type_from_file_location!
+  config.filter_rails_from_backtrace!
+  # arbitrary gems may also be filtered via:
+  # config.filter_gems_from_backtrace("gem name")
 
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
@@ -58,3 +58,5 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 end
+
+Capybara.javascript_driver = :poltergeist

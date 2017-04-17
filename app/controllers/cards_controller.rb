@@ -8,7 +8,7 @@ class CardsController < ApplicationController
 
   def index
     @cards = @q.result(distinct: true).includes(:user, :tags).page params[:page]
-   end
+  end
 
   def show
   end
@@ -63,6 +63,6 @@ class CardsController < ApplicationController
   end
 
   def set_tags
-    @all_tags = Tag.all.uniq
+    @all_tags = Tag.all.distinct
   end
 end

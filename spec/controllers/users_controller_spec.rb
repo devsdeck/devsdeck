@@ -10,7 +10,7 @@ RSpec.describe UsersController, type: :controller do
 
   describe "get #show" do
     it "assigns the correct values" do
-      get :show, id: user.to_param
+      get :show, params: { id: user.to_param }
 
       expect(assigns(:user)).to eq(user)
       expect(assigns(:cards)).to eq([])
@@ -22,7 +22,7 @@ RSpec.describe UsersController, type: :controller do
 
   describe "get #edit" do
     it "assigns requested user to @user" do
-      get :edit, id: user.to_param
+      get :edit, params: { id: user.to_param }
 
       expect(assigns(:user)).to eq(user)
     end
@@ -30,7 +30,7 @@ RSpec.describe UsersController, type: :controller do
 
   describe "get #cards" do
     it "assigns all_cards to @all_cards" do
-      get :cards, user_id: user.to_param
+      get :cards, params: { user_id: user.to_param }
 
       expect(assigns(:all_cards)).to eq([])
     end
@@ -38,7 +38,7 @@ RSpec.describe UsersController, type: :controller do
 
   describe "get #likes" do
     it "assigns all_likes to @all_likes" do
-      get :likes, user_id: user.to_param
+      get :likes, params: { user_id: user.to_param }
 
       expect(assigns(:all_likes)).to eq([])
     end

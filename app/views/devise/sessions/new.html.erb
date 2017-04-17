@@ -7,7 +7,7 @@
 
       <%- if devise_mapping.omniauthable? %>
         <%- resource_class.omniauth_providers.each do |provider| %>
-          <%= link_to user_omniauth_authorize_path(:github) do %>
+          <%= link_to user_github_omniauth_authorize_path do %>
             <button class="ui fluid submit button">
               <i class="icon <%= provider %>" aria-hidden="true"></i>
               Sign in with <%= OmniAuth::Utils.camelize(provider) %>

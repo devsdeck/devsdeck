@@ -15,6 +15,6 @@
 .idea
 .*.swp
 .*.swo
+.byebug_history
 
 config/database.yml
-.byebug_history
