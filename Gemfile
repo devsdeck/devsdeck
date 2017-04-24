@@ -20,6 +20,7 @@ gem "acts_as_votable", "~> 0.10.0"
 gem "cancancan", "~> 1.10"
 gem "responders"
 gem "omniauth-github"
+gem 'marked-rails'
 
 ## compatibility gems, to be removed:
 gem "record_tag_helper"

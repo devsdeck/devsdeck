@@ -12,24 +12,29 @@
 <% end %>
 
 <div class="field">
-  <%= f.label :name %><br>
-  <%= f.text_field :name %>
+  <%= f.text_field :name, placeholder: "Name" %>
 </div>
 <div class="field">
-  <%= f.label :description %><br>
-  <%= f.text_area :description,
-    placeholder: "To use code blocks you can surround your code with three backticks, and you can also specify a language for highlighting:
+    <div class="ui top attached tabular menu">
+      <a class="item active" data-tab="write">Description</a>
+      <a class="item" data-tab="preview" id="card-preview">Preview</a>
+    </div>
+    <div class="ui bottom attached active tab segment" data-tab="write">
+      <%= f.text_area :description,
+        placeholder: "To use code blocks you can surround your code with three backticks, and you can also specify a language for highlighting:
     ```
     # your code goes here...
     ```
     or
     ``` ruby
     # your code goes here...
-    ```" %>
+    ```", id: "card-description" %>
+    </div>
+    <div class="ui bottom attached tab segment preview" data-tab="preview" style="height: 197px overflow: auto">
+    </div>
   We use RedCarpet Markdown. If you need more help with syntaxes we recommend you to refer to <a href="https://caleorourke.gitbooks.io/redcarpet-syntax/content/code/index.html">this documentation</a>.
 </div>
 <div class="field">
-    <%= f.label :tags %><br>
   <%= select_tag "tags[]", options_from_collection_for_select(@all_tags, "name", "name", @card.tags.pluck(:name)), class: "ui fluid multiple search selection dropdown", multiple: ""%>
   </div>
 <div class="actions">
