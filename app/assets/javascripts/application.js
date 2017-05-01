@@ -17,5 +17,6 @@
 //= require semantic-ui
 //= require highlight.pack
 //= require marked
+//= require clipboard.min
 //= require_tree .
 
