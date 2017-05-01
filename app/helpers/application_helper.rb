@@ -1,17 +1,24 @@
 module ApplicationHelper
   def markdown(text)
     begin
-      options = {
+      render_options = {
+        hard_wrap: true,
+        link_attributes: { target: "_blank" }
+      }
+
+      markdown_options = {
         fenced_code_blocks: true,
         no_intra_emphasis: true,
         autolink: true,
+        tables: true,
         strikethrough: true,
         lax_html_blocks: true,
         superscript: true,
         highlight: true,
         quote: true
       }
-      markdown_to_html = Redcarpet::Markdown.new(Redcarpet::Render::HTML, options)
+      renderer = Redcarpet::Render::HTML.new(render_options)
+      markdown_to_html = Redcarpet::Markdown.new(renderer, markdown_options)
       markdown_to_html.render(text).html_safe
     rescue StandardError
       flash.alert = 'Unable to render Markdown!'
