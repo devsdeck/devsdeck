@@ -326,7 +326,6 @@ DEPENDENCIES
   better_errors
   cancancan (~> 1.10)
   capybara
-  coderay
   coffee-rails (~> 4.1.0)
   database_cleaner
   devise

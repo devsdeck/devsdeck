@@ -1,6 +1,7 @@
 $(document).on("turbolinks:load", function () {
   $("#card-preview").click(function(){
     previewCard();
+    highlight();
   });
 });
 

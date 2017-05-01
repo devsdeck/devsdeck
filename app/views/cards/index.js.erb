@@ -1,6 +1,7 @@
 // Append new data
 $("<%= escape_javascript(render("cards", cards: @cards)) %>")
   .appendTo($("#cards"));
+highlight();
 // Update pagination link
 <% if @cards.last_page? %>
   $('.pagination').html("That's all!");
