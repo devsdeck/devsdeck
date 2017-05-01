@@ -14,6 +14,7 @@ function addCopyButton() {
 }
 
 function prependButtonAndHide(pre, id) {
+  if (pre.find(".clipboard-copy").length == 0) {
     var button = $("<div class='ui small basic icon buttons right floated'>" +
       "<button class='mini ui button clipboard-copy' data-clipboard-target=#" + id + ">" +
       "<i class='clipboard icon'></i>" +
@@ -21,6 +22,7 @@ function prependButtonAndHide(pre, id) {
       "</div>");
     pre.children("code").prepend(button);
     pre.find(".clipboard-copy").hide();
+  }
 }
 
 function toggleCopyButton(pre) {
