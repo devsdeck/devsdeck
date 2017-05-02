@@ -2,6 +2,8 @@
 $("<%= escape_javascript(render("cards/cards", cards: @all_cards)) %>")
   .appendTo($("#cards"));
 highlight();
+addCopyButton();
+
 // Update pagination link
 <% if @all_cards.last_page? %>
   $('.pagination').html("That's all!");
