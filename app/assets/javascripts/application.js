@@ -15,4 +15,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require semantic-ui
+//= require highlight.pack
+//= require marked
 //= require_tree .
+

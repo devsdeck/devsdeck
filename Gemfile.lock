@@ -150,6 +150,7 @@ GEM
       skinny (>= 0.1.2)
       sqlite3-ruby
       thin
+    marked-rails (0.3.2.0)
     method_source (0.8.2)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
@@ -325,7 +326,6 @@ DEPENDENCIES
   better_errors
   cancancan (~> 1.10)
   capybara
-  coderay
   coffee-rails (~> 4.1.0)
   database_cleaner
   devise
@@ -337,6 +337,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   mailcatcher
+  marked-rails
   omniauth-github
   pg (~> 0.15)
   poltergeist
