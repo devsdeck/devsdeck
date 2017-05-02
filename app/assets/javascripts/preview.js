@@ -18,6 +18,6 @@ function previewCard() {
   });
 
   var text = $("#card-description").val();
-  var preview = text ? makred(text) : "Nothing to preview";
+  var preview = text ? marked(text) : "Nothing to preview";
   $(".preview").html(preview);
 }
