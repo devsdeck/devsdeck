@@ -1,9 +1,9 @@
 <% if current_user %>
-  <%= link_to card_like_or_unlike_path(card),
-    method: :patch,
+  <%= link_to card_like_path(card),
+    method: liked ? :delete : :post,
     remote: true,
     title: "Like Heart" do %>
-  <% if current_user.voted_up_on? card %>
+  <% if liked %>
     <i class="heart red like icon"></i>
   <% else %>
     <i class="heart outline like icon"></i>
