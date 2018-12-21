@@ -50,8 +50,10 @@ class User < ApplicationRecord
   end
 
   def all_liked_cards
-    Card.includes(:tags).joins("INNER JOIN votes on votes.votable_id = cards.id")
+    Card.includes(:tags)
+      .joins("INNER JOIN votes on votes.votable_id = cards.id")
       .where("votes.voter_id = #{id}")
+      .where("votes.vote_flag = true")
       .order("votes.created_at DESC")
   end
 
