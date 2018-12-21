@@ -1,0 +1,2 @@
+$("#likes_<%= @card.id %>").html("<%= escape_javascript(render("likes", card: @card,liked: current_user&.voted_up_on?(@card))) %>");
+

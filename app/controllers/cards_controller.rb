@@ -38,15 +38,6 @@ class CardsController < ApplicationController
     respond_with(@card)
   end
 
-  def like_or_unlike
-    return unless current_user
-    if current_user.voted_up_on? @card
-      @card.downvote_by current_user
-    else
-      @card.upvote_by current_user
-    end
-  end
-
   private
 
   def set_card

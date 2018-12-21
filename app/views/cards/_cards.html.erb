@@ -24,7 +24,7 @@
      <% end %>
      <span class="right floated">
       <div id="likes_<%= card.id %>">
-        <%= render 'cards/likes', card: card %>
+        <%= render 'likes/likes', card: card, liked: current_user&.voted_up_on?(card)%>
       </div>
      </span>
     </div>
